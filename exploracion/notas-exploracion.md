@@ -24,6 +24,7 @@ Salvo que se indique otro usuario, todas las pruebas de las secciones 1 a 8 se h
 | 4 | Ambos campos vacíos | Login fallido | Epic sadface: Username is required |
 | 5 | `standard_user` con contraseña incorrecta (`123`) | Login fallido | Epic sadface: Username and password do not match any user in this service |
 | 6 | `locked_out_user` con contraseña válida | Login fallido | Epic sadface: Sorry, this user has been locked out. |
+| 7 | Usuario inexistente (`usuario_falso`) con contraseña válida | Login fallido | Epic sadface: Username and password do not match any user in this service |
 
 ---
 
