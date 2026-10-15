@@ -27,3 +27,13 @@
 - RF-19: Al quitar un producto del carrito desde esta pantalla, el texto del botón del producto debe volver a mostrarse en negro.
 - RF-20: El ícono del carrito debe mostrar un número con la cantidad de productos agregados.
 - RF-21: El ícono del carrito no debe mostrar ningún número cuando no hay productos en el carrito.
+
+## Carrito
+
+- RF-22: Al entrar al carrito con productos agregados, el sistema debe mostrar para cada producto su nombre, precio y cantidad.
+- RF-23: Al quitar un producto desde el carrito, el producto debe dejar de mostrarse en la lista del carrito.
+- RF-24: Al quitar un producto desde el carrito, el número del ícono del carrito debe disminuir en uno.
+- RF-25: El sistema debe mostrar la pantalla del carrito, sin productos, al ingresar al carrito sin haber agregado productos.
+- RF-26: El sistema debe redirigir a la pantalla de productos al tocar el botón "Continue Shopping".
+- RF-27: El sistema debe redirigir a la pantalla de datos del comprador ("Checkout: Your Information") al tocar el botón "Checkout" con productos en el carrito.
+- RF-28: El sistema no debe permitir avanzar al checkout si el carrito no tiene productos.
