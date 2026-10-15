@@ -54,3 +54,9 @@
 - RF-37: El precio de cada producto en el resumen debe coincidir con el de la pantalla de productos.
 - RF-38: El sistema debe redirigir a la pantalla de productos al tocar el botón "Cancel".
 - RF-39: El sistema debe redirigir a la pantalla de confirmación de compra al tocar el botón "Finish".
+
+## Confirmación de compra
+
+- RF-40: El sistema debe mostrar el mensaje "Thank you for your order! Your order has been dispatched, and will arrive just as fast as the pony can get there!" al finalizar la compra.
+- RF-41: El sistema debe redirigir a la pantalla de productos al tocar el botón "Back Home".
+- RF-42: El carrito debe quedar vacío después de finalizar una compra.
