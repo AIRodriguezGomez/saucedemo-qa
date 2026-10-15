@@ -47,3 +47,10 @@
 - RF-33: El sistema debe mostrar el mensaje "Error: Postal Code is required" si el campo Postal Code está vacío al tocar "Continue".
 - RF-34: El sistema debe permanecer en la pantalla de datos del comprador si alguno de los tres campos está vacío al tocar el botón "Continue".
 - RF-35: El sistema debe redirigir a la pantalla del carrito al tocar el botón "Cancel".
+
+## Checkout: resumen de la compra
+
+- RF-36: El sistema debe mostrar, para cada producto, su nombre y precio, y los importes Item total, Tax y Total.
+- RF-37: El precio de cada producto en el resumen debe coincidir con el de la pantalla de productos.
+- RF-38: El sistema debe redirigir a la pantalla de productos al tocar el botón "Cancel".
+- RF-39: El sistema debe redirigir a la pantalla de confirmación de compra al tocar el botón "Finish".
