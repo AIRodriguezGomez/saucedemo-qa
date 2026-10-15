@@ -67,3 +67,8 @@
 - RF-44: El sistema debe redirigir a la página de Sauce Labs al seleccionar "About".
 - RF-45: El sistema debe cerrar la sesión del usuario al seleccionar "Logout".
 - RF-46: El sistema debe reiniciar el estado de la aplicación al seleccionar "Reset App State".
+
+## Sesión
+
+- RF-47: El sistema no debe permitir volver a la pantalla de productos con el botón "atrás" del navegador después de cerrar sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
+- RF-48: El sistema no debe permitir acceder a la página de productos sin haber iniciado sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
