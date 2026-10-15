@@ -60,3 +60,10 @@
 - RF-40: El sistema debe mostrar el mensaje "Thank you for your order! Your order has been dispatched, and will arrive just as fast as the pony can get there!" al finalizar la compra.
 - RF-41: El sistema debe redirigir a la pantalla de productos al tocar el botón "Back Home".
 - RF-42: El carrito debe quedar vacío después de finalizar una compra.
+
+## Menú lateral
+
+- RF-43: El sistema debe mostrar las opciones All Items, About, Logout y Reset App State al abrir el menú.
+- RF-44: El sistema debe redirigir a la página de Sauce Labs al seleccionar "About".
+- RF-45: El sistema debe cerrar la sesión del usuario al seleccionar "Logout".
+- RF-46: El sistema debe reiniciar el estado de la aplicación al seleccionar "Reset App State".
