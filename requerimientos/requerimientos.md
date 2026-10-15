@@ -37,3 +37,13 @@
 - RF-26: El sistema debe redirigir a la pantalla de productos al tocar el botón "Continue Shopping".
 - RF-27: El sistema debe redirigir a la pantalla de datos del comprador ("Checkout: Your Information") al tocar el botón "Checkout" con productos en el carrito.
 - RF-28: El sistema no debe permitir avanzar al checkout si el carrito no tiene productos.
+
+## Checkout: datos del comprador
+
+- RF-29: Los campos First Name, Last Name y Zip/Postal Code deben permitir ingresar datos.
+- RF-30: El sistema debe redirigir a la pantalla de resumen de la compra al completar los tres campos y tocar el botón "Continue".
+- RF-31: El sistema debe mostrar el mensaje "Error: First Name is required" si el campo First Name está vacío al tocar "Continue".
+- RF-32: El sistema debe mostrar el mensaje "Error: Last Name is required" si el campo Last Name está vacío al tocar "Continue".
+- RF-33: El sistema debe mostrar el mensaje "Error: Postal Code is required" si el campo Postal Code está vacío al tocar "Continue".
+- RF-34: El sistema debe permanecer en la pantalla de datos del comprador si alguno de los tres campos está vacío al tocar el botón "Continue".
+- RF-35: El sistema debe redirigir a la pantalla del carrito al tocar el botón "Cancel".
