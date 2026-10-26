@@ -10,11 +10,10 @@
 - RF-06: El sistema debe mostrar el mensaje "Epic sadface: Username and password do not match any user in this service" si se intenta iniciar sesión con un usuario inexistente y una contraseña válida.
 - RF-07: El sistema debe mostrar el mensaje "Epic sadface: Sorry, this user has been locked out." si se intenta iniciar sesión con el usuario `locked_out_user` y su contraseña correcta.
 
-
-  ## Productos
+## Productos
 
 - RF-08: El sistema debe mostrar 6 productos en la pantalla de productos.
-- RF-09: El sistema debe mostrar, para cada producto, su imagen correspondiente, título, descripción y precio.
+- RF-09: El sistema debe mostrar, para cada producto, la imagen que corresponde a ese producto, su título, su descripción y su precio.
 - RF-10: El sistema debe ordenar los productos alfabéticamente por título, de la A a la Z, al seleccionar la opción "Name (A to Z)" en la lista de ordenamiento.
 - RF-11: El sistema debe ordenar los productos alfabéticamente por título, de la Z a la A, al seleccionar la opción "Name (Z to A)" en la lista de ordenamiento.
 - RF-12: El sistema debe ordenar los productos por precio, de menor a mayor, al seleccionar la opción "Price (low to high)" en la lista de ordenamiento.
@@ -72,7 +71,6 @@
 
 - RF-47: El sistema no debe permitir volver a la pantalla de productos con el botón "atrás" del navegador después de cerrar sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
 - RF-48: El sistema no debe permitir acceder a la página de productos sin haber iniciado sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
-
 
 ## Rendimiento (requerimientos no funcionales)
 
