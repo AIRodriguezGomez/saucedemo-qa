@@ -2,13 +2,13 @@
 
 Casos de prueba derivados de los [requerimientos](../requerimientos/requerimientos.md) del proyecto. Cada caso indica en la columna **Cubre** el requerimiento que verifica, y el **resultado esperado** sale del requerimiento, no del comportamiento observado en la aplicación.
 
-- **Total de casos:** 40
-- **Tipo:** 28 positivos y 12 negativos
-- **Prioridad:** 5 alta, 28 media y 7 baja
-- **Cobertura:** los 48 requerimientos (RF-01 a RF-48) tienen al menos un caso (ver [trazabilidad](#trazabilidad-requerimiento-caso))
+- **Total de casos:** 42
+- **Tipo:** 30 positivos y 12 negativos
+- **Prioridad:** 5 alta, 29 media y 8 baja
+- **Cobertura:** los 50 requerimientos (RF-01 a RF-48 y RNF-01 y RNF-02) tienen al menos un caso (ver [trazabilidad](#trazabilidad-requerimiento-caso))
 - **Usuario de prueba:** salvo que el caso indique otro, se ejecuta con `standard_user`. El resultado con cada usuario se registra en la ejecución.
 
-**Criterio de prioridad:** alta para el recorrido de compra (login válido, agregar al carrito, checkout y finalizar), media para validaciones, mensajes y ordenamientos, y baja para detalles secundarios.
+**Criterio de prioridad:** alta para el recorrido de compra (login válido, agregar al carrito, checkout y finalizar), media para validaciones, mensajes, ordenamientos y rendimiento del ordenamiento, y baja para detalles secundarios, como los botones de navegación y el rendimiento de "Back Home".
 
 ---
 
@@ -28,7 +28,7 @@ Casos de prueba derivados de los [requerimientos](../requerimientos/requerimient
 
 | ID | Cubre | Título | Precondición | Pasos | Datos de prueba | Resultado esperado | Tipo | Prioridad |
 |---|---|---|---|---|---|---|---|---|
-| CP-08 | RF-08, RF-09 | Verificar la cantidad y los datos de los productos del listado | Haber iniciado sesión y estar en la pantalla de productos | 1. Contar los productos del listado<br>2. Revisar los datos que muestra cada producto | N/A | RF-08: Se muestran 6 productos en el listado<br>RF-09: Cada producto muestra su imagen correspondiente, título, descripción y precio | Positivo | Media |
+| CP-08 | RF-08, RF-09 | Verificar la cantidad y los datos de los productos del listado | Haber iniciado sesión y estar en la pantalla de productos | 1. Contar los productos del listado<br>2. Revisar los datos que muestra cada producto | N/A | RF-08: Se muestran 6 productos en el listado<br>RF-09: Cada producto muestra la imagen que corresponde a ese producto, su título, su descripción y su precio | Positivo | Media |
 | CP-09 | RF-10 | Ordenar los productos de la A a la Z | Haber iniciado sesión y estar en la pantalla de productos | 1. Abrir la lista de ordenamiento<br>2. Seleccionar "Name (A to Z)" | Opción: Name (A to Z) | Se muestran los productos ordenados alfabéticamente por título, de la A a la Z | Positivo | Media |
 | CP-10 | RF-11 | Ordenar los productos de la Z a la A | Haber iniciado sesión y estar en la pantalla de productos | 1. Abrir la lista de ordenamiento<br>2. Seleccionar "Name (Z to A)" | Opción: Name (Z to A) | Se muestran los productos ordenados alfabéticamente por título, de la Z a la A | Positivo | Media |
 | CP-11 | RF-12 | Ordenar los productos por precio, de menor a mayor | Haber iniciado sesión y estar en la pantalla de productos | 1. Abrir la lista de ordenamiento<br>2. Seleccionar "Price (low to high)" | Opción: Price (low to high) | Se muestran los productos ordenados por precio, de menor a mayor | Positivo | Media |
@@ -92,6 +92,12 @@ Casos de prueba derivados de los [requerimientos](../requerimientos/requerimient
 | CP-39 | RF-47 | Intentar volver a productos con el botón atrás después de cerrar sesión | Haber iniciado sesión y estar en la pantalla de productos | 1. Abrir el menú lateral.<br>2. Seleccionar "Logout".<br>3. Utilizar el botón atrás del navegador | Username: standard_user | El sistema no permite volver a la pantalla de productos y muestra el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in.". | Negativo | Media |
 | CP-40 | RF-48 | Intentar acceder a productos sin iniciar sesión | No haber iniciado sesión. | 1. Ingresar directamente a la URL de la pantalla de productos. | URL: https://www.saucedemo.com/inventory.html | El sistema no permite acceder a la pantalla de productos y muestra el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in.". | Negativo | Media |
 
+## 9. Rendimiento
+
+| ID | Cubre | Título | Precondición | Pasos | Datos de prueba | Resultado esperado | Tipo | Prioridad |
+|---|---|---|---|---|---|---|---|---|
+| CP-41 | RNF-01 | Ordenar los productos y medir el tiempo de respuesta | Haber iniciado sesión y estar en la pantalla de productos | 1. Abrir la lista de ordenamiento<br>2. Seleccionar "Price (low to high)" y activar el cronómetro<br>3. Detener el cronómetro cuando la lista aparece reordenada | Opción: Price (low to high) | La lista se muestra reordenada en menos de 2 segundos | Positivo | Media |
+| CP-42 | RNF-02 | Volver a productos desde la confirmación de compra y medir el tiempo de respuesta | Haber iniciado sesión y estar en la pantalla de confirmación de compra | 1. Tocar "Back Home" y activar el cronómetro<br>2. Detener el cronómetro cuando se muestra la pantalla de productos | N/A | La pantalla de productos se muestra en menos de 2 segundos | Positivo | Baja |
 ---
 
 ## Trazabilidad: requerimiento a caso
@@ -146,3 +152,5 @@ Casos de prueba derivados de los [requerimientos](../requerimientos/requerimient
 | RF-46 | CP-38 |
 | RF-47 | CP-39 |
 | RF-48 | CP-40 |
+| RNF-01 | CP-41 |
+| RNF-02 | CP-42 |
