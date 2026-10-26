@@ -68,11 +68,13 @@
 - RF-45: El sistema debe cerrar la sesión del usuario al seleccionar "Logout".
 - RF-46: El sistema debe reiniciar el estado de la aplicación al seleccionar "Reset App State".
 
-## Rendimiento (requerimientos no funcionales)
-
-- RNF-01: El sistema debe mostrar la lista de productos reordenada en menos de 2 segundos desde que se selecciona una opción de ordenamiento.
-- RNF-02: El sistema debe mostrar la pantalla de productos en menos de 2 segundos al tocar el botón "Back Home".
 ## Sesión
 
 - RF-47: El sistema no debe permitir volver a la pantalla de productos con el botón "atrás" del navegador después de cerrar sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
 - RF-48: El sistema no debe permitir acceder a la página de productos sin haber iniciado sesión, y debe mostrar el mensaje "Epic sadface: You can only access '/inventory.html' when you are logged in."
+
+
+## Rendimiento (requerimientos no funcionales)
+
+- RNF-01: El sistema debe mostrar la lista de productos reordenada en menos de 2 segundos desde que se selecciona una opción de ordenamiento.
+- RNF-02: El sistema debe mostrar la pantalla de productos en menos de 2 segundos al tocar el botón "Back Home".
