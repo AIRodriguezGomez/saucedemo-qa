@@ -5,6 +5,7 @@ Documento de trabajo del proyecto de QA, elaborado antes de escribir los requeri
 - **Aplicación:** SauceDemo (https://www.saucedemo.com)
 - **Tester:** Andrea Isabella Rodriguez Gomez
 - **Fecha de exploración:** 06/10/2026
+- **Última actualización:** 26/10/2026 (se corrigieron y completaron observaciones de la sección 9 al ejecutar los casos de prueba)
 - **Navegador:** Chrome
 - **Usuario de referencia:** `standard_user` / `secret_sauce`
 
@@ -42,6 +43,10 @@ Salvo que se indique otro usuario, todas las pruebas de las secciones 1 a 8 se h
 | 6 | Tocar el nombre o la foto de un producto | Redirige a la página de detalle del producto seleccionado | N/A |
 | 7 | Agregar un producto al carrito | El botón "Add to cart" cambia a "Remove" y su texto pasa de negro a rojo. En el ícono del carrito aparece un número con la cantidad de productos agregados | N/A |
 | 8 | Quitar el producto desde esta misma pantalla | El botón "Remove" vuelve a "Add to cart" y su texto pasa de rojo a negro | N/A |
+
+**Observaciones:**
+
+- La lista ya aparece ordenada de A a Z al entrar a la pantalla. Al elegir "Name (A to Z)" no se ve ningún cambio, porque el orden ya es ese.
 
 ---
 
@@ -139,32 +144,45 @@ Salvo que se indique otro usuario, todas las pruebas de las secciones 1 a 8 se h
 
 - **Login:** permite iniciar sesión.
 - **Productos:**
-  - En la lista de productos muestra la imagen de un perro con una pelota en la boca en lugar de la imagen descriptiva del producto, con un precio distinto del real. Sin requerimientos definidos, falta determinar si es un error o un comportamiento intencional.
-  - Al tocar un producto, la página de detalle muestra la foto que corresponde y el precio cambia respecto del de la lista.
-  - Ordenar de A a Z: no ordena los productos.
+  - En la lista de productos, los 6 productos muestran la imagen de un perro con una pelota en la boca en lugar de la imagen descriptiva del producto. Sin requerimientos definidos, falta determinar si es un error o un comportamiento intencional.
+  - Al tocar un producto, la página de detalle no corresponde al producto seleccionado. Por ejemplo, al tocar "Sauce Labs Backpack" se abre el detalle de "Sauce Labs Fleece Jacket".
+  - Ordenar de A a Z: no se ve ningún cambio, porque la lista ya aparece ordenada de A a Z al entrar.
   - Ordenar de Z a A: no ordena los productos.
   - Ordenar por precio de menor a mayor: no ordena.
   - Ordenar por precio de mayor a menor: no ordena.
   - El precio de la pantalla de productos no coincide con el precio al agregar el producto al carrito. En el carrito sí se muestra la imagen que corresponde al producto.
-- **Checkout:** en la pantalla "Your Information" no permite escribir en el campo Last Name. Al no poder completarlo, no se puede avanzar a la pantalla de resumen. Mensaje: "Error: Last Name is required".
+- **Checkout:** en la pantalla "Your Information" no permite escribir en el campo Last Name (First Name y Zip/Postal Code sí permiten escribir). Al no poder completarlo, no se puede avanzar a la pantalla de resumen. Mensaje: "Error: Last Name is required".
 
 ### `performance_glitch_user`
 
 - **Login:** permite iniciar sesión.
 - **Productos:** presenta demora (efecto tardío) al ordenar los productos (A-Z, Z-A, menor a mayor y mayor a menor) y al tocar "Back Home" después de concretar una compra. Toda la página tarda en cargar.
+- **Tiempos medidos con cronómetro manual:**
+
+| Acción | `standard_user` | `performance_glitch_user` |
+|---|---|---|
+| Ordenar por precio, de menor a mayor | 0,4 segundos | 4 segundos |
+| Tocar "Back Home" después de una compra | 0,4 segundos | 5 segundos |
 
 ### `error_user`
 
 - **Login:** permite iniciar sesión.
-- **Productos:** al ordenar con Z-A, menor a mayor y mayor a menor, muestra el mensaje "Sorting is broken! This error has been reported to Backtrace."
-- **Carrito:** solo deja agregar 3 productos. Con esos 3 agregados desde la pantalla de productos, el botón "Remove" no los quita. Desde la pantalla del carrito sí permite quitarlos.
+- **Productos:**
+  - Al ordenar con Z-A, menor a mayor y mayor a menor, la lista queda en el mismo orden y muestra el mensaje "Sorting is broken! This error has been reported to Backtrace."
+  - Al ordenar de A a Z no muestra ningún mensaje ni se ve ningún cambio, porque la lista ya aparece ordenada de A a Z.
+- **Carrito:**
+  - Solo deja agregar 3 productos.
+  - Desde la pantalla de productos, el botón "Remove" no quita el producto: el botón sigue en "Remove", el texto no vuelve a negro y el ícono del carrito sigue mostrando el número. Desde la pantalla del carrito sí permite quitarlos.
 - **Checkout:** permite escribir números en First Name. No permite escribir en Last Name (ni números ni letras), pero sí permite avanzar a la pantalla de resumen sin ese dato y no muestra ningún mensaje de error.
 
 ### `visual_user`
 
 - **Login:** permite iniciar sesión.
 - **Productos:**
-  - De los 6 productos, 5 muestran su imagen correspondiente y 1 muestra la imagen del perro con la pelota.
+  - De los 6 productos, 5 muestran su imagen correspondiente y 1 ("Sauce Labs Backpack") muestra la imagen del perro con la pelota.
+  - Al tocar el nombre de un producto, la página de detalle corresponde al producto seleccionado y muestra su imagen correcta.
   - Los precios de la lista no coinciden con los de la página de detalle del producto (por ejemplo, 5 dólares en la lista y 20 dólares en el detalle).
-- **Carrito:** los precios del carrito no coinciden con los de la pantalla de productos. Al completar la compra vuelve a mostrarse el precio de la pantalla de productos.
-  - El botón Checkout aparece en la esquina superior derecha y el ícono del carrito aparece en medio de una línea de separación.
+  - El precio de un mismo producto cambia al refrescar la página o al moverse entre pantallas.
+- **Carrito:** muestra nombre, precio y cantidad del producto. Los precios del carrito no coinciden con los de la pantalla de productos.
+- **Resumen de la compra:** el precio no coincide con el de la pantalla de productos. Por ejemplo, "Sauce Labs Backpack" mostró 3,93 en la lista y 29,99 en el resumen.
+- **Diseño:** el botón Checkout aparece en la esquina superior derecha y el ícono del carrito aparece en medio de una línea de separación.
