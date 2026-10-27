@@ -8,6 +8,7 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Fecha de ejecución:** 26/10/2026
 - **Total de bugs:** 11 (todos abiertos)
 - **Contraseña de todos los usuarios:** `secret_sauce`
+- **Evidencia:** capturas en la carpeta `evidencias`, con el nombre `<ejecución>_<bug>.png` (por ejemplo, `EJ-12_BUG-01.png`).
 
 **Criterio de severidad:** alta cuando impide completar un flujo o rompe una función principal, media cuando la función se puede usar pero con un resultado incorrecto, y baja para detalles menores.
 
@@ -15,17 +16,17 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | ID | Título | Severidad | Usuarios | Casos |
 |---|---|---|---|---|
-| BUG-01 | Un producto muestra una imagen que no le corresponde | Media | problem_user, visual_user | CP-43, CP-44 |
-| BUG-02 | El sistema permite avanzar al checkout con el carrito vacío | Media | standard_user | CP-22 |
-| BUG-03 | El ordenamiento no funciona con problem_user | Alta | problem_user | CP-10, CP-11, CP-12 |
-| BUG-04 | El ordenamiento muestra un error con error_user | Alta | error_user | CP-10, CP-11, CP-12 |
-| BUG-05 | No se puede escribir en el campo Last Name del checkout | Alta | problem_user, error_user | CP-23 |
-| BUG-06 | Se avanza al resumen de compra sin Last Name y sin mensaje de error | Media | error_user | CP-26 |
-| BUG-07 | El botón "Remove" no funciona desde la pantalla de productos | Media | error_user | CP-16 |
-| BUG-08 | El precio del producto es inconsistente entre pantallas | Alta | visual_user | CP-30 |
-| BUG-09 | Demora al ordenar los productos | Media | performance_glitch_user | CP-41 |
-| BUG-10 | Demora al volver a productos con "Back Home" | Media | performance_glitch_user | CP-42 |
-| BUG-11 | Al tocar un producto se abre el detalle de otro producto | Alta | problem_user | CP-13, CP-44 |
+| BUG-01 | Un producto muestra una imagen que no le corresponde | Media | problem_user, visual_user | CP-09, CP-16 |
+| BUG-02 | El sistema permite avanzar al checkout con el carrito vacío | Media | standard_user | CP-24 |
+| BUG-03 | El ordenamiento no funciona con problem_user | Alta | problem_user | CP-11, CP-12, CP-13 |
+| BUG-04 | El ordenamiento muestra un error con error_user | Alta | error_user | CP-11, CP-12, CP-13 |
+| BUG-05 | No se puede escribir en el campo Last Name del checkout | Alta | problem_user, error_user | CP-25 |
+| BUG-06 | Se avanza al resumen de compra sin Last Name y sin mensaje de error | Media | error_user | CP-28 |
+| BUG-07 | El botón "Remove" no funciona desde la pantalla de productos | Media | error_user | CP-18 |
+| BUG-08 | El precio del producto es inconsistente entre pantallas | Alta | visual_user | CP-16, CP-32 |
+| BUG-09 | Demora al ordenar los productos | Media | performance_glitch_user | CP-43 |
+| BUG-10 | Demora al volver a productos con "Back Home" | Media | performance_glitch_user | CP-44 |
+| BUG-11 | Al tocar un producto se abre el detalle de otro producto | Alta | problem_user | CP-14, CP-16 |
 
 ---
 
@@ -33,7 +34,7 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 - **Severidad:** Media
 - **Estado:** Abierto
-- **Requerimiento incumplido:** RF-09 (CP-43) y RF-15 (CP-44)
+- **Requerimiento incumplido:** RF-09 (CP-09) y RF-15 (CP-16)
 
 **Precondiciones:** haber iniciado sesión y estar en la pantalla de productos.
 
@@ -50,10 +51,10 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | Usuario | Caso | Ejecución | Alcance | Evidencia |
 |---|---|---|---|---|
-| problem_user | CP-43 | EJ-12 | Los 6 productos | evidencia_EJ-12_BUG-01 |
-| visual_user | CP-43 | EJ-13 | Solo "Sauce Labs Backpack" | evidencia_EJ-13_BUG-01 |
-| problem_user | CP-44 | EJ-30 | "Sauce Labs Backpack". Además el detalle abre otro producto (ver BUG-11) | evidencia_EJ-30_BUG-01 |
-| visual_user | CP-44 | EJ-31 | Solo "Sauce Labs Backpack". El detalle muestra la imagen correcta, distinta de la del listado | evidencia_EJ-31_BUG-01 |
+| problem_user | CP-09 | EJ-12 | Los 6 productos | EJ-12_BUG-01.png |
+| visual_user | CP-09 | EJ-13 | Solo "Sauce Labs Backpack" | EJ-13_BUG-01.png |
+| problem_user | CP-16 | EJ-31 | "Sauce Labs Backpack". Además el detalle abre otro producto (ver BUG-11) | EJ-31_BUG-01.png |
+| visual_user | CP-16 | EJ-32 | Solo "Sauce Labs Backpack". El detalle muestra la imagen correcta, distinta de la del listado. En la misma ejecución se detectó la diferencia de precio (ver BUG-08) | EJ-32_BUG-01.png |
 
 ---
 
@@ -63,8 +64,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Estado:** Abierto
 - **Usuario:** standard_user
 - **Requerimiento incumplido:** RF-28
-- **Detectado en:** CP-22 (EJ-42)
-- **Evidencia:** evidencia_EJ-42_BUG-02
+- **Detectado en:** CP-24 (EJ-42)
+- **Evidencia:** EJ-42_BUG-02.png
 
 **Precondiciones:** haber iniciado sesión y no tener productos agregados en el carrito.
 
@@ -101,11 +102,11 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | Usuario | Caso | Requerimiento | Ejecución | Opción | Evidencia |
 |---|---|---|---|---|---|
-| problem_user | CP-10 | RF-11 | EJ-18 | Name (Z to A) | evidencia_EJ-18_BUG-03 |
-| problem_user | CP-11 | RF-12 | EJ-21 | Price (low to high) | evidencia_EJ-21_BUG-03 |
-| problem_user | CP-12 | RF-13 | EJ-24 | Price (high to low) | evidencia_EJ-24_BUG-03 |
+| problem_user | CP-11 | RF-11 | EJ-18 | Name (Z to A) | EJ-18_BUG-03.png |
+| problem_user | CP-12 | RF-12 | EJ-21 | Price (low to high) | EJ-21_BUG-03.png |
+| problem_user | CP-13 | RF-13 | EJ-24 | Price (high to low) | EJ-24_BUG-03.png |
 
-**Observación:** la opción "Name (A to Z)" (CP-09, EJ-15) no se considera falla, porque la lista ya aparece ordenada de A a Z al entrar y la opción no tiene nada que cambiar.
+**Observación:** la opción "Name (A to Z)" (CP-10, EJ-15) no se considera falla, porque la lista ya aparece ordenada de A a Z al entrar y la opción no tiene nada que cambiar.
 
 ---
 
@@ -131,11 +132,11 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | Usuario | Caso | Requerimiento | Ejecución | Opción | Evidencia |
 |---|---|---|---|---|---|
-| error_user | CP-10 | RF-11 | EJ-19 | Name (Z to A) | evidencia_EJ-19_BUG-04 |
-| error_user | CP-11 | RF-12 | EJ-22 | Price (low to high) | evidencia_EJ-22_BUG-04 |
-| error_user | CP-12 | RF-13 | EJ-25 | Price (high to low) | evidencia_EJ-25_BUG-04 |
+| error_user | CP-11 | RF-11 | EJ-19 | Name (Z to A) | EJ-19_BUG-04.png |
+| error_user | CP-12 | RF-12 | EJ-22 | Price (low to high) | EJ-22_BUG-04.png |
+| error_user | CP-13 | RF-13 | EJ-25 | Price (high to low) | EJ-25_BUG-04.png |
 
-**Observación:** con "Name (A to Z)" (CP-09, EJ-16) no se muestra ningún mensaje y no se considera falla, porque la lista ya aparece ordenada de A a Z.
+**Observación:** con "Name (A to Z)" (CP-10, EJ-16) no se muestra ningún mensaje y no se considera falla, porque la lista ya aparece ordenada de A a Z.
 
 ---
 
@@ -144,7 +145,7 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Severidad:** Alta
 - **Estado:** Abierto
 - **Requerimiento incumplido:** RF-29
-- **Detectado en:** CP-23
+- **Detectado en:** CP-25
 
 **Precondiciones:** haber iniciado sesión, tener un producto en el carrito y estar en la pantalla "Checkout: Your Information".
 
@@ -164,8 +165,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | Usuario | Caso | Ejecución | Evidencia |
 |---|---|---|---|
-| problem_user | CP-23 | EJ-44 | evidencia_EJ-44_BUG-05 |
-| error_user | CP-23 | EJ-45 | evidencia_EJ-45_BUG-05 |
+| problem_user | CP-25 | EJ-44 | EJ-44_BUG-05.png |
+| error_user | CP-25 | EJ-45 | EJ-45_BUG-05.png |
 
 ---
 
@@ -175,8 +176,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Estado:** Abierto
 - **Usuario:** error_user
 - **Requerimiento incumplido:** RF-32 y RF-34
-- **Detectado en:** CP-26 (EJ-49)
-- **Evidencia:** evidencia_EJ-49_BUG-06
+- **Detectado en:** CP-28 (EJ-49)
+- **Evidencia:** EJ-49_BUG-06.png
 
 **Precondiciones:** haber iniciado sesión con `error_user`, tener un producto en el carrito y estar en la pantalla "Checkout: Your Information".
 
@@ -199,8 +200,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Estado:** Abierto
 - **Usuario:** error_user
 - **Requerimiento incumplido:** RF-18, RF-19 y RF-21
-- **Detectado en:** CP-16 (EJ-35)
-- **Evidencia:** evidencia_EJ-35_BUG-07
+- **Detectado en:** CP-18 (EJ-35)
+- **Evidencia:** EJ-35_BUG-07.png
 
 **Precondiciones:** haber iniciado sesión con `error_user` y tener únicamente "Sauce Labs Backpack" agregado al carrito.
 
@@ -222,9 +223,7 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Severidad:** Alta
 - **Estado:** Abierto
 - **Usuario:** visual_user
-- **Requerimiento incumplido:** RF-37
-- **Detectado en:** CP-30 (EJ-54)
-- **Evidencia:** evidencia_EJ-54_BUG-08_lista y evidencia_EJ-54_BUG-08_resumen
+- **Requerimiento incumplido:** RF-37 (CP-32) y RF-15 (CP-16)
 
 **Precondiciones:** haber iniciado sesión con `visual_user` y estar en la pantalla de productos.
 
@@ -239,6 +238,13 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 **Resultado obtenido:** el precio es 3,93 en el listado y 29,99 en el resumen de la compra. Además, el precio del producto cambia al refrescar la página o al moverse entre pantallas.
 
+**Usuarios y ejecuciones afectados:**
+
+| Usuario | Caso | Ejecución | Qué se comparó | Evidencia |
+|---|---|---|---|---|
+| visual_user | CP-16 | EJ-32 | Listado (3,93) contra detalle del producto (29,99) | EJ-32_BUG-08.png |
+| visual_user | CP-32 | EJ-54 | Listado (3,93) contra resumen de la compra (29,99) | EJ-54_BUG-08_lista.png y EJ-54_BUG-08_resumen.png |
+
 ---
 
 ## BUG-09: Demora al ordenar los productos
@@ -247,8 +253,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Estado:** Abierto
 - **Usuario:** performance_glitch_user
 - **Requerimiento incumplido:** RNF-01
-- **Detectado en:** CP-41 (EJ-66)
-- **Evidencia:** evidencia_EJ-66_BUG-09
+- **Detectado en:** CP-43 (EJ-66)
+- **Evidencia:** EJ-66_BUG-09.png
 
 **Precondiciones:** haber iniciado sesión con `performance_glitch_user` y estar en la pantalla de productos.
 
@@ -272,8 +278,8 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 - **Estado:** Abierto
 - **Usuario:** performance_glitch_user
 - **Requerimiento incumplido:** RNF-02
-- **Detectado en:** CP-42 (EJ-68)
-- **Evidencia:** evidencia_EJ-68_BUG-10
+- **Detectado en:** CP-44 (EJ-68)
+- **Evidencia:** EJ-68_BUG-10.png
 
 **Precondiciones:** haber iniciado sesión con `performance_glitch_user` y estar en la pantalla de confirmación de compra.
 
@@ -311,5 +317,5 @@ Defectos encontrados al ejecutar los [casos de prueba](../casos-de-prueba/casos-
 
 | Usuario | Caso | Ejecución | Evidencia |
 |---|---|---|---|
-| problem_user | CP-13 | EJ-27 | evidencia_EJ-27_BUG-11 |
-| problem_user | CP-44 | EJ-30 | evidencia_EJ-30_BUG-11 |
+| problem_user | CP-14 | EJ-27 | EJ-27_BUG-11.png |
+| problem_user | CP-16 | EJ-31 | EJ-31_BUG-11.png |
